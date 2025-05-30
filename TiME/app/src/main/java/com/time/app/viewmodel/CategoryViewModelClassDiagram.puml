@@ -1,0 +1,43 @@
+@startuml CategoryViewModel
+
+package "viewmodel" {
+    class CategoryViewModel {
+        - repository: CategoryRepository
+        - db: FirebaseFirestore
+        - _categories: MutableStateFlow<List<Category>>
+        + categories: StateFlow<List<Category>>
+
+        + loadCategories()
+        + addCategory(category: Category, autoSync: Boolean = false)
+        + deleteCategory(id: String)
+        + saveCategoryToFirestore(category: Category)
+        + deleteFromFirestore(id: String)
+    }
+}
+
+package "model" {
+    class Category {
+        - id: String
+        - name: String
+        - color: Long
+
+        + toMap(): Map<String, Any>
+    }
+}
+
+class CategoryRepository {
+    + getCategories(): List<Category>
+    + addCategory(category: Category)
+    + deleteCategory(id: String)
+}
+
+class FirebaseFirestore
+class FirebaseAuth
+
+' Relationships
+CategoryViewModel --> Category : uses
+CategoryViewModel --> CategoryRepository : delegates
+CategoryViewModel --> FirebaseFirestore : interacts
+CategoryViewModel --> FirebaseAuth : uses UID
+
+@enduml

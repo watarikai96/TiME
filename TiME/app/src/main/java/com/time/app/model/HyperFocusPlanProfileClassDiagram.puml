@@ -1,0 +1,12 @@
+@startuml HyperFocusPlanProfileClassDiagram
+
+class HyperFocusPlanProfile {
+  - id: String
+  - name: String
+  - plan: HyperFocus
+  - createdAt: Long
+}
+
+HyperFocusPlanProfile --> HyperFocus
+
+@enduml

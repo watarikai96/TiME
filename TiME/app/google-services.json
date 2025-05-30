@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "614415004019",
+    "project_id": "time-android",
+    "storage_bucket": "time-android.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614415004019:android:07c8bd0deb918d05a6d506",
+        "android_client_info": {
+          "package_name": "com.time.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5-hjN80EWEqyRwrY-EOLey3IS7GoNAQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

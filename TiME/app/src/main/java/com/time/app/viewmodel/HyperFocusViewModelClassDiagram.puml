@@ -1,0 +1,105 @@
+@startuml HyperFocusViewModel
+
+package "viewmodel" {
+    class HyperFocusViewModel {
+        - sessionQueue: List<ExecutableSession>
+        - savedPlans: List<HyperFocusPlanProfile>
+        - selectedPlan: HyperFocusPlanProfile
+        - sessionCount: Int
+        - shortBreakDuration: Int
+        - shortBreakFrequency: Int
+        - longBreakDuration: Int
+        - longBreakFrequency: Int
+        - globalSessionTitle: String
+        - globalSessionDuration: Int
+        - selectedCategory: Category
+        - selectedIconName: String
+        - individualTitles: List<String>
+        - individualDurations: List<Int>
+        - individualCategories: List<Category?>
+        - individualIcons: List<String>
+        - currentSessionIndex: Int
+        - isPaused: Boolean
+        - isRunning: Boolean
+        - progress: Float
+
+        + loadSavedPlans()
+        + saveCurrentGlobalPlan()
+        + saveCurrentIndividualPlan()
+        + prepareQueueFromPlan()
+        + buildSessionQueue()
+        + startTimer()
+        + pauseSession()
+        + resumeSession()
+        + markSessionAsCompleted()
+        + deleteSession()
+        + adjustSessionDuration()
+        + persistState()
+        + restorePersistedState()
+    }
+}
+
+package "model" {
+    class ExecutableSession {
+        - id: String
+        - title: String
+        - duration: Int
+        - isBreak: Boolean
+        - scheduledStart: Long
+        - originalStart: Long
+        - breakWindows: List<BreakWindow>
+        - focusDuration: Int
+    }
+
+    class HyperFocusPlanProfile {
+        - id: String
+        - name: String
+        - plan: HyperFocus
+    }
+
+    class HyperFocus {
+        - sessions: List<HyperFocusSession>
+        - shortBreakDuration: Int
+        - shortBreakFrequency: Int
+        - longBreakDuration: Int
+        - longBreakFrequency: Int
+    }
+
+    class HyperFocusSession {
+        - title: String
+        - durationMinutes: Int
+        - categoryId: String
+        - categoryColor: Int
+        - iconName: String
+    }
+
+    class BreakWindow {
+        - start: Long
+        - end: Long
+    }
+
+    class SessionStateSnapshot {
+        - queue: List<ExecutableSession>
+        - currentIndex: Int
+        - progress: Float
+        - isRunning: Boolean
+        - isPaused: Boolean
+    }
+
+    class Category {
+        - id: String
+        - name: String
+        - color: Long
+    }
+}
+
+HyperFocusViewModel --> HyperFocusPlanProfile
+HyperFocusViewModel --> ExecutableSession
+HyperFocusViewModel --> SessionStateSnapshot
+HyperFocusViewModel --> Category
+HyperFocusViewModel --> BreakWindow
+HyperFocusPlanProfile --> HyperFocus
+HyperFocus --> HyperFocusSession
+ExecutableSession --> BreakWindow
+
+@enduml

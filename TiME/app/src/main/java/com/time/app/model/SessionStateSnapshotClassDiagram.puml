@@ -1,0 +1,16 @@
+@startuml SessionStateSnapshotClassDiagram
+
+class SessionStateSnapshot {
+  + queue: List<ExecutableSession>
+  + currentIndex: Int
+  + progress: Float
+  + isRunning: Boolean
+  + isPaused: Boolean
+  + breakStartedAt: Long?
+}
+
+SessionStateSnapshot --> "List of" ExecutableSession
+
+
+@enduml
+

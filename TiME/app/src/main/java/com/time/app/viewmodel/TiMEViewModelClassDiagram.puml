@@ -1,0 +1,57 @@
+@startuml TiMEViewModel
+
+package "viewmodel" {
+    class TiMEViewModel {
+        - repository: TiMERepository
+        - firestore: FirebaseFirestore
+        - _timeList: MutableList<TiME>
+        + timeList: List<TiME>
+        + todaySessions: List<TiME>
+
+        + add(time: TiME)
+        + update(partialUpdate: TiME)
+        + delete(id: String)
+        + getFocusStreak(): Int
+        + fetchAllTimes()
+        - saveToUserNode(time: TiME)
+        - deleteFromUserNode(id: String)
+    }
+}
+
+package "model" {
+    class TiME {
+        - id: String
+        - title: String
+        - description: String
+        - startTime: Long
+        - endTime: Long
+        - notes: String
+        - subtasks: List<String>
+        - isCompleted: Boolean
+        - isPaused: Boolean
+        - pauseStartTime: Long?
+        - totalPausedDuration: Long
+        - breakTimeTotal: Long
+        - isBreak: Boolean
+
+        + fromMap(id: String, data: Map<String, Any>): TiME
+        + toMap(): Map<String, Any>
+    }
+}
+
+class TiMERepository {
+    + add(time: TiME)
+    + update(id: String, time: TiME)
+    + delete(id: String)
+}
+
+class FirebaseFirestore
+class FirebaseAuth
+
+' Relationships
+TiMEViewModel --> TiME : uses
+TiMEViewModel --> TiMERepository : delegates
+TiMEViewModel --> FirebaseFirestore : uses
+TiMEViewModel --> FirebaseAuth : gets UID
+
+@enduml

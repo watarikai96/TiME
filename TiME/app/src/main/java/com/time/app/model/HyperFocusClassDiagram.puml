@@ -1,0 +1,21 @@
+@startuml HyperFocusClassDiagram
+
+class HyperFocusSession {
+  - title: String
+  - durationMinutes: Int
+  - categoryId: String
+  - categoryColor: Long
+  - iconName: String?
+}
+
+class HyperFocus {
+  - sessions: List<HyperFocusSession>
+  - shortBreakDuration: Int
+  - shortBreakFrequency: Int
+  - longBreakDuration: Int
+  - longBreakFrequency: Int
+}
+
+HyperFocus --> HyperFocusSession : contains
+
+@enduml
