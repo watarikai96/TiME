@@ -86,4 +86,4 @@ For business inquiries, licensing, or usage permissions, contact:
 ---
 
 Crafted with ❤️ using Jetpack Compose + Firebase  
-by **TiME Discipline Ltd.**
+by **TiME Disciplinary Ltd.**
