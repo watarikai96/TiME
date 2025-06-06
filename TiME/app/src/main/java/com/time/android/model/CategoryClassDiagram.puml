@@ -1,9 +1,0 @@
-@startuml CategoryClassDiagram
-
-class Category {
-  - id: String
-  - name: String
-  - color: Long
-}
-
-@enduml
