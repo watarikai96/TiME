@@ -48,9 +48,12 @@ We’re building intelligent systems to help you focus even better:
 ## License & Ownership
 
 ```
-Copyright © 2024–2025  
-TiME Discipline Ltd.  
-All rights reserved.
+TiME DISCIPLINE LTD. PROPRIETARY LICENSE  
+Copyright © 2024-2025. All rights reserved.
+
+1. This software is provided for PORTFOLIO/REVIEW PURPOSES ONLY.  
+2. Any form of reproduction, distribution, or modification is prohibited.  
+3. Violators will be pursued legally under copyright law.  
 ```
 
 This software is the exclusive intellectual property of TiME Discipline Ltd. It includes, but is not limited to, the TiME App source code, UI/UX design, QuietCraft™ Theme engine, HyperFocus™ session system, visual assets, logos, and branding.
