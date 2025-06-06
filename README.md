@@ -83,7 +83,10 @@ These identifiers represent original frameworks and tools owned by TiME Discipli
 For business inquiries, licensing, or usage permissions, contact:  
 **watarikai@outlook.com**
 
+
 ---
 
-Crafted with ❤️ using Jetpack Compose + Firebase  
-by **TiME Disciplinary Ltd.**
+> **Crafted with ❤️ using Jetpack Compose**
+> by **TiME Disciplinary Ltd.**
+
+---
