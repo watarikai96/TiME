@@ -62,7 +62,7 @@ No part of this software may be:
 - Modified
 - Distributed
 - Reverse-engineered  
-...without explicit written permission from TiME Discipline Ltd.
+without explicit written permission from TiME Discipline Ltd.
 
 This software is proprietary and intended solely for private or internal use. It is **not open source**, and redistribution is **strictly prohibited** without a formal commercial license agreement.
 
