@@ -79,7 +79,7 @@ class MainActivity : ComponentActivity() {
 
 
 
-            // Splash
+            // Animated Splash Screen ( Clock Loader )
             var showMainApp by remember { mutableStateOf(false) }
 
             TiMETheme(useDarkTheme = useDarkTheme, accentColor = accentColor) {
