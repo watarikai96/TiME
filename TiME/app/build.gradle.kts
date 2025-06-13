@@ -14,7 +14,7 @@ plugins {
 }
 
 android {
-    namespace = "com.time.app"
+    namespace = "com.time.android"
     compileSdk = 35
 
     defaultConfig {
