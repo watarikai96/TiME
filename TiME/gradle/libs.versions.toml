@@ -1,6 +1,6 @@
 [versions]
 accompanistPagerIndicators = "0.30.1"
-agp = "8.9.1"
+agp = "8.10.1"
 androidxJunit = "1.1.5"
 coilCompose = "2.5.0"
 composeM3 = "1.13.0"
