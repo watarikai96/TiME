@@ -1,4 +1,4 @@
-package com.time.android.ui.components.hyperfocus
+package com.time.android.ui.components.reusables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.text.KeyboardOptions

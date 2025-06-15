@@ -44,6 +44,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.time.android.model.Category
 import com.time.android.ui.components.reusables.CategoryIconSelector
+import com.time.android.ui.components.reusables.FrequencyInputDialog
 import com.time.android.ui.theme.QuietCraftTheme
 import kotlin.math.roundToInt
 
@@ -109,7 +110,7 @@ fun NewPlanCreatorModal(
         var currentStart = now
         repeat(count) { index ->
             val duration = if (viewModel.isGlobalMode.value) {
-                viewModel.globalSessionDuration.value.minutesToMillis()
+                viewModel.globalSessionDuration.intValue.minutesToMillis()
             } else {
                 viewModel.individualDurations[index].minutesToMillis()
             }
@@ -204,7 +205,7 @@ fun NewPlanCreatorModal(
                         maxDate = maxDate,
                         onTimeSelected = { start, end ->
                             val duration = end - start
-                            viewModel.globalSessionDuration.value = duration.toMinutes().toInt()
+                            viewModel.globalSessionDuration.intValue = duration.toMinutes().toInt()
 
                             // Update all sessions to use this duration
                             perSessionStarts.indices.forEach { index ->
@@ -382,7 +383,7 @@ fun BreakSettingsSection(viewModel: HyperFocusViewModel) {
         // Short Break Duration
         BreakSettingRow(
             label = "Short Break Duration",
-            value = "${viewModel.shortBreakDuration.value} min",
+            value = "${viewModel.shortBreakDuration.intValue} min",
             icon = Icons.TwoTone.AirlineSeatReclineNormal,
             onClick = { showShortDurationDialog = true }
         )
@@ -390,7 +391,7 @@ fun BreakSettingsSection(viewModel: HyperFocusViewModel) {
         // Short Break Frequency
         BreakSettingRow(
             label = "Short Break Frequency",
-            value = "After every ${viewModel.shortBreakFrequency.value} sessions",
+            value = "After every ${viewModel.shortBreakFrequency.intValue} sessions",
             icon = Icons.TwoTone.RepeatOne,
             onClick = { showShortFrequencyDialog = true }
         )
@@ -398,7 +399,7 @@ fun BreakSettingsSection(viewModel: HyperFocusViewModel) {
         // Long Break Duration
         BreakSettingRow(
             label = "Long Break Duration",
-            value = "${viewModel.longBreakDuration.value} min",
+            value = "${viewModel.longBreakDuration.intValue} min",
             icon = Icons.TwoTone.Hotel,
             onClick = { showLongDurationDialog = true }
         )
@@ -406,7 +407,7 @@ fun BreakSettingsSection(viewModel: HyperFocusViewModel) {
         // Long Break Frequency
         BreakSettingRow(
             label = "Long Break Frequency",
-            value = "After every ${viewModel.longBreakFrequency.value} sessions",
+            value = "After every ${viewModel.longBreakFrequency.intValue} sessions",
             icon = Icons.TwoTone.Repeat,
             onClick = { showLongFrequencyDialog = true }
         )
@@ -414,9 +415,9 @@ fun BreakSettingsSection(viewModel: HyperFocusViewModel) {
 
     if (showShortDurationDialog) {
         FrequencyInputDialog(
-            initial = viewModel.shortBreakDuration.value,
+            initial = viewModel.shortBreakDuration.intValue,
             onConfirm = {
-                viewModel.shortBreakDuration.value = it
+                viewModel.shortBreakDuration.intValue = it
                 showShortDurationDialog = false
             },
             onDismiss = { showShortDurationDialog = false },
@@ -427,9 +428,9 @@ fun BreakSettingsSection(viewModel: HyperFocusViewModel) {
 
     if (showShortFrequencyDialog) {
         FrequencyInputDialog(
-            initial = viewModel.shortBreakFrequency.value,
+            initial = viewModel.shortBreakFrequency.intValue,
             onConfirm = {
-                viewModel.shortBreakFrequency.value = it
+                viewModel.shortBreakFrequency.intValue = it
                 showShortFrequencyDialog = false
             },
             onDismiss = { showShortFrequencyDialog = false },
@@ -440,27 +441,27 @@ fun BreakSettingsSection(viewModel: HyperFocusViewModel) {
 
     if (showLongDurationDialog) {
         FrequencyInputDialog(
-            initial = viewModel.longBreakDuration.value,
+            initial = viewModel.longBreakDuration.intValue,
             onConfirm = {
-                viewModel.longBreakDuration.value = it
+                viewModel.longBreakDuration.intValue = it
                 showLongDurationDialog = false
             },
             onDismiss = { showLongDurationDialog = false },
             label = "Long Break Duration (min)",
-            validate = { it > viewModel.shortBreakDuration.value }
+            validate = { it > viewModel.shortBreakDuration.intValue }
         )
     }
 
     if (showLongFrequencyDialog) {
         FrequencyInputDialog(
-            initial = viewModel.longBreakFrequency.value,
+            initial = viewModel.longBreakFrequency.intValue,
             onConfirm = {
-                viewModel.longBreakFrequency.value = it
+                viewModel.longBreakFrequency.intValue = it
                 showLongFrequencyDialog = false
             },
             onDismiss = { showLongFrequencyDialog = false },
             label = "Long Break Frequency",
-            validate = { it > viewModel.shortBreakFrequency.value && it <= viewModel.sessionCount.intValue }
+            validate = { it > viewModel.shortBreakFrequency.intValue && it <= viewModel.sessionCount.intValue }
         )
     }
 }
