@@ -1,6 +1,6 @@
 package com.time.android.viewmodel
 
-import TiMERepository
+import com.time.android.repository.TiMERepository
 import android.util.Log
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel

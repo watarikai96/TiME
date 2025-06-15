@@ -1,3 +1,5 @@
+package com.time.android.repository
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.time.android.model.TiME
