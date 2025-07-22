@@ -1,4 +1,4 @@
-package com.time.android.ui.components
+package com.time.android.ui.components.timeline
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -99,7 +100,7 @@ private fun ClockFaceCanvas(
                 drawRoundRect(
                     color = color,
                     topLeft = Offset(center.x + x * scale, center.y + y * scale),
-                    size = androidx.compose.ui.geometry.Size(width * scale, height * scale),
+                    size = Size(width * scale, height * scale),
                     cornerRadius = CornerRadius(cornerRadius * scale, cornerRadius * scale)
                 )
             }

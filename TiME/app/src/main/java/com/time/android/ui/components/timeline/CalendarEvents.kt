@@ -1,4 +1,4 @@
-package com.time.android.ui.components
+package com.time.android.ui.components.timeline
 
 import androidx.annotation.DrawableRes
 import com.time.android.R

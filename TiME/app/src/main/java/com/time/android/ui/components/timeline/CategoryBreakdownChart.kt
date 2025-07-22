@@ -1,5 +1,4 @@
-package com.time.android.ui.components
-
+package com.time.android.ui.components.timeline
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -15,31 +14,33 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.time.android.model.Category
 import com.time.android.model.TiME
+import java.time.DayOfWeek
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 
 @Composable
-fun DailyBreakdownChart(
-    date: LocalDate,
+fun CategoryBreakdownChart(
     entries: List<TiME>,
     categories: List<Category>,
-    selectedFormat: TimeFormatOption,
-    modifier: Modifier = Modifier
-)
- {
+    modifier: Modifier = Modifier,
+) {
     val zoneId = ZoneId.systemDefault()
-    val dailyEntries = entries.filter {
-        Instant.ofEpochMilli(it.startTime).atZone(zoneId).toLocalDate() == date && !it.isBreak
+    val weekStart = LocalDate.now().with(DayOfWeek.MONDAY)
+    val weekEnd = weekStart.plusDays(6)
+
+    val filtered = entries.filter {
+        val date = Instant.ofEpochMilli(it.startTime).atZone(zoneId).toLocalDate()
+        date in weekStart..weekEnd && !it.isBreak
     }
 
     val categoryTotals = categories.map { category ->
-        val total = dailyEntries.filter { it.category == category.id }
+        val total = filtered.filter { it.category == category.id }
             .sumOf { (it.endTime - it.startTime).coerceAtLeast(0L) } / 60000f
         category to total
     }.filter { it.second > 0f }
 
-    val maxMinutes = categoryTotals.maxOfOrNull { it.second } ?: 1f
+    val maxTotal = categoryTotals.maxOfOrNull { it.second } ?: 1f
 
     Column(
         modifier = modifier
@@ -48,10 +49,10 @@ fun DailyBreakdownChart(
     ) {
 
         categoryTotals.forEach { (category, minutes) ->
-            val animatedFraction by animateFloatAsState(
-                targetValue = (minutes / maxMinutes).coerceIn(0f, 1f),
+            val fillFraction by animateFloatAsState(
+                targetValue = (minutes / maxTotal).coerceIn(0f, 1f),
                 animationSpec = tween(500),
-                label = "dailyBarAnim"
+                label = "categoryFillAnim"
             )
 
             Column(Modifier.padding(vertical = 6.dp)) {
@@ -65,7 +66,7 @@ fun DailyBreakdownChart(
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Text(
-                        text = formatDuration((minutes * 60_000L).toLong(), selectedFormat),
+                        text = "${minutes.toInt()} min",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -75,14 +76,14 @@ fun DailyBreakdownChart(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(10.dp)
-                        .clip(RoundedCornerShape(8.dp))
+                        .clip(RoundedCornerShape(6.dp))
                         .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))
                 ) {
                     Box(
                         modifier = Modifier
                             .fillMaxHeight()
-                            .fillMaxWidth(animatedFraction)
-                            .clip(RoundedCornerShape(8.dp))
+                            .fillMaxWidth(fillFraction)
+                            .clip(RoundedCornerShape(6.dp))
                             .background(Color(category.color.toInt()))
                     )
                 }

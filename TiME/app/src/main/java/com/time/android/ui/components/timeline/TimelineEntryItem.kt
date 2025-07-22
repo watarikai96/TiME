@@ -1,4 +1,4 @@
-package com.time.android.ui.components
+package com.time.android.ui.components.timeline
 
 import android.app.TimePickerDialog
 import androidx.compose.animation.AnimatedVisibility
@@ -84,7 +84,7 @@ import com.time.android.model.Category
 import com.time.android.model.Subtask
 import com.time.android.model.TiME
 import com.time.android.ui.icons.IconRepository
-import com.time.android.ui.theme.DefaultCategoryColor
+import com.time.android.ui.theme.QuietCraftTheme.DefaultCategoryColor
 import com.time.android.ui.theme.ThemeManager
 import com.time.android.viewmodel.TiMEViewModel
 import kotlinx.coroutines.delay

@@ -1,4 +1,4 @@
-package com.time.android.ui.components
+package com.time.android.ui.components.timeline
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
