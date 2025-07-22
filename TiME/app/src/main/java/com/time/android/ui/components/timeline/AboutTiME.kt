@@ -158,17 +158,6 @@ fun AboutTiMEModal(onDismiss: () -> Unit) {
                     )
                 )
 
-                Spacer(Modifier.height(12.dp))
-
-                // Credits
-                Text(
-                    text = "Credits",
-                    style = MaterialTheme.typography.labelMedium.copy(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        fontWeight = FontWeight.Bold,
-                        letterSpacing = 0.3.sp
-                    )
-                )
 
                 Spacer(Modifier.height(16.dp))
             }
