@@ -84,9 +84,9 @@ import com.time.android.ui.theme.QuietCraftSettingToggleButton
 import com.time.android.ui.theme.QuietCraftSignOutButton
 import com.time.android.ui.theme.QuietCraftSyncButton
 import com.time.android.ui.theme.QuietCraftTheme
+import com.time.android.ui.theme.QuietCraftTheme.ThemePresets
 import com.time.android.ui.theme.ThemeManager
 import com.time.android.ui.theme.ThemeMode
-import com.time.android.ui.theme.ThemePresets
 import com.time.android.ui.theme.getAccentColorName
 import com.time.android.viewmodel.CategoryViewModel
 import kotlinx.coroutines.launch
