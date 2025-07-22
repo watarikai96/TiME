@@ -14,3 +14,4 @@
 .cxx
 local.properties
 /.idea/compiler.xml
+/gradlew.bat
