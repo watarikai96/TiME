@@ -73,10 +73,10 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.time.android.datastore.SettingsDataStore
-import com.time.android.ui.components.AboutTiMEModal
-import com.time.android.ui.components.AnimatedClockLogo
-import com.time.android.ui.components.TimeFormatOption
-import com.time.android.ui.components.TimeFormatSelector
+import com.time.android.ui.components.timeline.AboutTiMEModal
+import com.time.android.ui.components.timeline.AnimatedClockLogo
+import com.time.android.ui.components.timeline.TimeFormatOption
+import com.time.android.ui.components.timeline.TimeFormatSelector
 import com.time.android.ui.theme.QuietCraftAboutButton
 import com.time.android.ui.theme.QuietCraftElevatedButton
 import com.time.android.ui.theme.QuietCraftSettingActionButton

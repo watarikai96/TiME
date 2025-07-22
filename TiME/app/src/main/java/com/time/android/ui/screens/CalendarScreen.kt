@@ -60,10 +60,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.time.android.ui.components.CalendarEvents
-import com.time.android.ui.components.EmptyStateView
-import com.time.android.ui.components.TimeFormatOption
-import com.time.android.ui.components.TimelineEntryItem
+import com.time.android.ui.components.timeline.CalendarEvents
+import com.time.android.ui.components.timeline.EmptyStateView
+import com.time.android.ui.components.timeline.TimeFormatOption
+import com.time.android.ui.components.timeline.TimelineEntryItem
 import com.time.android.ui.theme.ThemeManager
 import com.time.android.viewmodel.CategoryViewModel
 import com.time.android.viewmodel.TiMEViewModel

@@ -34,8 +34,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.time.android.navigation.AppNavGraph
 import com.time.android.navigation.Screen
-import com.time.android.ui.components.AnimatedClockLoader
-import com.time.android.ui.components.BottomNavBar
+import com.time.android.ui.components.timeline.AnimatedClockLoader
+import com.time.android.ui.components.timeline.BottomNavBar
 import com.time.android.ui.screens.AddTiMEScreen
 import com.time.android.ui.theme.ThemeManager
 import com.time.android.ui.theme.ThemeMode

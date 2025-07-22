@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.time.android.ui.components.TimeFormatOption
+import com.time.android.ui.components.timeline.TimeFormatOption
 import com.time.android.ui.screens.AnalyticsScreen
 import com.time.android.ui.screens.CalendarViewScreen
 import com.time.android.ui.screens.SettingsScreen
