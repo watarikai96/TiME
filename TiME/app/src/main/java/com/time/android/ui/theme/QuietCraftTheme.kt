@@ -38,6 +38,144 @@ import androidx.compose.ui.unit.Dp
 object QuietCraftTheme {
 
     // === Color Palette ===
+
+    // Color Palette for Categories
+    val Violet = Color(0xFF7C4DFF)
+    val Indigo = Color(0xFF536DFE)
+    val Coral = Color(0xFFFF6F61)
+    val Orange = Color(0xFFFF8F00)
+    val SkyBlue = Color(0xFF00B0FF)
+    val MintGreen = Color(0xFF00C853)
+
+    val DeepPurple = Color(0xFF512DA8)
+    val Teal = Color(0xFF009688)
+    val RosePink = Color(0xFFEC407A)
+    val Lime = Color(0xFFCDDC39)
+    val Amber = Color(0xFFFFC107)
+    val Cyan = Color(0xFF00ACC1)
+
+    val White = Color(0xFFFFFFFF)
+    val OffWhite = Color(0xFFFAFAFA)
+    val LightSurface = Color(0xFFF5F5F5)
+    val MediumSurface = Color(0xFFEEEEEE)
+    val BorderGray = Color(0xFFE0E0E0)
+    val DarkSurface = Color(0xFF212121)
+    val TextDark = Color(0xFF1A1A1A)
+    val TextLight = Color(0xFFBDBDBD)
+
+    val Success = Color(0xFF4CAF50)
+    val Warning = Color(0xFFFFC107)
+    val Error = Color(0xFFF44336)
+    val Info = Color(0xFF2196F3)
+    val Disabled = Color(0xFF9E9E9E)
+    val Focus = Color(0xFF82B1FF)
+
+    val GlowViolet = Color(0xFFB388FF)
+    val NeonGreen = Color(0xFF69F0AE)
+    val ElectricBlue = Color(0xFF40C4FF)
+    val PinkGlow = Color(0xFFF48FB1)
+    val ShadowBlack = Color(0xFF000000)
+    val Transparent = Color(0x00000000)
+
+    val Ruby = Color(0xFFD32F2F)
+    val Emerald = Color(0xFF2E7D32)
+    val Sapphire = Color(0xFF1976D2)
+    val Sand = Color(0xFFFFEBB7)
+    val Midnight = Color(0xFF2C3E50)
+    val Lavender = Color(0xFF9575CD)
+    val Steel = Color(0xFF78909C)
+    val Blush = Color(0xFFF8BBD0)
+    val Mocha = Color(0xFF8D6E63)
+    val Olive = Color(0xFF827717)
+    val Ice = Color(0xFFE0F7FA)
+    val Ash = Color(0xFFB0BEC5)
+    val Carrot = Color(0xFFFF7043)
+    val Plum = Color(0xFF9C27B0)
+    val Azure = Color(0xFF03A9F4)
+    val Banana = Color(0xFFFFF176)
+    val Mint = Color(0xFF00E676)
+    val Graphite = Color(0xFF37474F)
+    val Charcoal = Color(0xFF263238)
+    val CottonCandy = Color(0xFFFF80AB)
+    val Fog = Color(0xFFECEFF1)
+    val Peach = Color(0xFFFFAB91)
+    val Periwinkle = Color(0xFF7986CB)
+    val Clay = Color(0xFFBCAAA4)
+
+    // === Category Color Mappings ===
+    val CategoryColors = mapOf(
+        "Work" to SkyBlue,
+        "Fitness" to MintGreen,
+        "Personal" to Sand,
+        "Study" to Blush,
+        "Other" to Lavender
+    )
+
+
+    //Color for ThemeManager
+    // -- Color Presets --
+    val ThemePresets = listOf(
+        "Amber Glow" to Color(0xFFFFC107),
+        "Coral Blush" to Color(0xFFFF6F61),
+        "Terra Clay" to Color(0xFFD2691E),
+        "Rose Dust" to Color(0xFFF48FB1),
+        "Soft Peach" to Color(0xFFFFDAB9),
+        "Sky Ice" to Color(0xFF81D4FA),
+        "Oceanic" to Color(0xFF0288D1),
+        "Teal Bloom" to Color(0xFF009688),
+        "Frosted Lime" to Color(0xFFAED581),
+        "Violet Dream" to Color(0xFF7C4DFF),
+        "Midnight Purple" to Color(0xFF512DA8),
+        "Lavender Fog" to Color(0xFFB39DDB),
+        "Grape Fade" to Color(0xFF9575CD),
+        "Orchid Pop" to Color(0xFFBA68C8),
+        "Indigo Ink" to Color(0xFF3F51B5),
+        "Denim" to Color(0xFF5C6BC0),
+        "Sapphire Stone" to Color(0xFF1976D2),
+        "Night Sky" to Color(0xFF283593),
+        "Arctic Mist" to Color(0xFFE3F2FD),
+        "Fresh Meadow" to Color(0xFF66BB6A),
+        "Spruce Blue" to Color(0xFF33691E),
+        "Forest Walk" to Color(0xFF388E3C),
+        "Aloe Dew" to Color(0xFFC8E6C9),
+        "Pale Sage" to Color(0xFFDCEDC8),
+        "Graphite Gray" to Color(0xFF424242),
+        "Ash Mist" to Color(0xFFBDBDBD),
+        "Cream Paper" to Color(0xFFFFF8E1),
+        "Dust White" to Color(0xFFF5F5F5),
+        "Jet Black" to Color(0xFF212121),
+        "Ink Blue" to Color(0xFF263238),
+        "Neon Orange" to Color(0xFFFF5722),
+        "Cyber Lime" to Color(0xFFCDDC39),
+        "Pale Goldenrod" to Color(0xFFEEE8AA),
+        "Medium Aquamarine" to Color(0xFF66CDAA),
+        "Sky Blue" to Color(0xFF87CEEB),
+        "Deep Sky Blue" to Color(0xFF00BFFF),
+        "Plum" to Color(0xFFDDA0DD),
+        "Mint Cream" to Color(0xFFF5FFFA),
+        "Light Coral" to Color(0xFFF08080),
+        "Gold" to Color(0xFFFFD700),
+        "Silver" to Color(0xFFC0C0C0),
+        "Light Sky Blue" to Color(0xFF87CEFA),
+        "Honeydew" to Color(0xFFF0FFF0),
+        "Aqua" to Color(0xFF00FFFF),
+        "Dark Goldenrod" to Color(0xFFB8860B),
+        "Crimson" to Color(0xFFDC143C),
+        "Lemon Chiffon" to Color(0xFFFFFACD),
+        "Coral" to Color(0xFFFF7F50),
+        "Aquamarine" to Color(0xFF7FFFD4),
+        "Goldenrod" to Color(0xFFDAA520),
+        "Rose Quartz" to Color(0xFFF7CAC9),
+        "Moonlight Lilac" to Color(0xFFE0BBE4),
+        "Light Goldenrod Yellow" to Color(0xFFFAFAD2),
+        "Azure" to Color(0xFFF0FFFF),
+        "Teal" to Color(0xFF008080),
+        "Misty Rose" to Color(0xFFFFE4E1)
+    )
+
+    val DefaultCategoryColor = Color(0xFFEDEDED)
+    val CategoryColorPalette = CategoryColors.values.toSet()
+
     val cardBackground: Color @Composable get() = MaterialTheme.colorScheme.surfaceContainerHighest
     val chipBackground: Color @Composable get() = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f)
     val selectedChipBackground: Color @Composable get() = MaterialTheme.colorScheme.primaryContainer
@@ -53,6 +191,32 @@ object QuietCraftTheme {
     }
 
     // === Typography ===
+
+    // === Main App Typography ===
+    val AppTypography = Typography(
+        displayLarge = TextStyle(
+            fontWeight = FontWeight.Bold,
+            fontSize = 32.sp,
+        ),
+        headlineMedium = TextStyle(
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 22.sp,
+        ),
+        titleMedium = TextStyle(
+            fontWeight = FontWeight.Medium,
+            fontSize = 18.sp,
+        ),
+        bodyLarge = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp,
+        ),
+        labelLarge = TextStyle(
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp,
+        )
+    )
+
+
     val headlineStyle: TextStyle @Composable get() = MaterialTheme.typography.headlineSmall.copy(
         fontWeight = FontWeight.SemiBold,
         letterSpacing = (-0.2).sp

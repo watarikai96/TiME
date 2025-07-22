@@ -13,6 +13,7 @@ import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import com.time.android.ui.theme.QuietCraftTheme.ThemePresets
 
 // -- DataStore Setup --
 private val Context.dataStore by preferencesDataStore("time_theme")
@@ -22,68 +23,8 @@ private val THEME_MODE_KEY = stringPreferencesKey("theme_mode")
 // -- Enum for Theme Mode --
 enum class ThemeMode { Light, Dark, System }
 
-// -- Color Presets --
-val ThemePresets = listOf(
-    "Amber Glow" to Color(0xFFFFC107),
-    "Coral Blush" to Color(0xFFFF6F61),
-    "Terra Clay" to Color(0xFFD2691E),
-    "Rose Dust" to Color(0xFFF48FB1),
-    "Soft Peach" to Color(0xFFFFDAB9),
-    "Sky Ice" to Color(0xFF81D4FA),
-    "Oceanic" to Color(0xFF0288D1),
-    "Teal Bloom" to Color(0xFF009688),
-    "Frosted Lime" to Color(0xFFAED581),
-    "Violet Dream" to Color(0xFF7C4DFF),
-    "Midnight Purple" to Color(0xFF512DA8),
-    "Lavender Fog" to Color(0xFFB39DDB),
-    "Grape Fade" to Color(0xFF9575CD),
-    "Orchid Pop" to Color(0xFFBA68C8),
-    "Indigo Ink" to Color(0xFF3F51B5),
-    "Denim" to Color(0xFF5C6BC0),
-    "Sapphire Stone" to Color(0xFF1976D2),
-    "Night Sky" to Color(0xFF283593),
-    "Arctic Mist" to Color(0xFFE3F2FD),
-    "Fresh Meadow" to Color(0xFF66BB6A),
-    "Spruce Blue" to Color(0xFF33691E),
-    "Forest Walk" to Color(0xFF388E3C),
-    "Aloe Dew" to Color(0xFFC8E6C9),
-    "Pale Sage" to Color(0xFFDCEDC8),
-    "Graphite Gray" to Color(0xFF424242),
-    "Ash Mist" to Color(0xFFBDBDBD),
-    "Cream Paper" to Color(0xFFFFF8E1),
-    "Dust White" to Color(0xFFF5F5F5),
-    "Jet Black" to Color(0xFF212121),
-    "Ink Blue" to Color(0xFF263238),
-    "Neon Orange" to Color(0xFFFF5722),
-    "Cyber Lime" to Color(0xFFCDDC39),
-    "Pale Goldenrod" to Color(0xFFEEE8AA),
-    "Medium Aquamarine" to Color(0xFF66CDAA),
-    "Sky Blue" to Color(0xFF87CEEB),
-    "Deep Sky Blue" to Color(0xFF00BFFF),
-    "Plum" to Color(0xFFDDA0DD),
-    "Mint Cream" to Color(0xFFF5FFFA),
-    "Light Coral" to Color(0xFFF08080),
-    "Gold" to Color(0xFFFFD700),
-    "Silver" to Color(0xFFC0C0C0),
-    "Light Sky Blue" to Color(0xFF87CEFA),
-    "Honeydew" to Color(0xFFF0FFF0),
-    "Aqua" to Color(0xFF00FFFF),
-    "Dark Goldenrod" to Color(0xFFB8860B),
-    "Crimson" to Color(0xFFDC143C),
-    "Lemon Chiffon" to Color(0xFFFFFACD),
-    "Coral" to Color(0xFFFF7F50),
-    "Aquamarine" to Color(0xFF7FFFD4),
-    "Goldenrod" to Color(0xFFDAA520),
-    "Rose Quartz" to Color(0xFFF7CAC9),
-    "Moonlight Lilac" to Color(0xFFE0BBE4),
-    "Light Goldenrod Yellow" to Color(0xFFFAFAD2),
-    "Azure" to Color(0xFFF0FFFF),
-    "Teal" to Color(0xFF008080),
-    "Misty Rose" to Color(0xFFFFE4E1)
-)
-
 fun getAccentColorName(color: Color): String {
-    return ThemePresets.find { it.second.value.toULong() == color.value.toULong() }?.first
+    return ThemePresets.find { it.second.value == color.value }?.first
         ?: "Custom"
 }
 
@@ -167,7 +108,7 @@ fun TiMETheme(
 
     MaterialTheme(
         colorScheme = colors,
-        typography = Typography,
+        typography = QuietCraftTheme.AppTypography,
         content = content
     )
 }
