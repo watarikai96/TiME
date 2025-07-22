@@ -170,15 +170,6 @@ fun AboutTiMEModal(onDismiss: () -> Unit) {
                     )
                 )
 
-                Text(
-                    text = "Flag & UI Icons by Geekclick, Freepik and Smashicons (Flaticon)",
-                    style = MaterialTheme.typography.labelSmall.copy(
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center
-                    ),
-                    modifier = Modifier.padding(top = 2.dp)
-                )
-
                 Spacer(Modifier.height(16.dp))
             }
 
