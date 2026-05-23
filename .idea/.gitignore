@@ -3,3 +3,19 @@
 /workspace.xml
 /appInsightsSettings.xml
 /deviceManager.xml
+
+# macOS
+.DS_Store
+
+# Android Studio
+.idea/
+*.iml
+.gradle/
+build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Founder's private playbook — never commit
+TiME Disciplinary Inc/

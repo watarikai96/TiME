@@ -1,0 +1,388 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480" role="img" aria-label="TiME — Your time, returned to you">
+  <title>TiME</title>
+  <desc>Your time, returned to you. A galaxy rotates behind the wordmark; the dot of the i is an iridescent amber crystal cycling through every visible hue.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0F1419"/>
+      <stop offset="55%"  stop-color="#0B0F14"/>
+      <stop offset="100%" stop-color="#070A0E"/>
+    </linearGradient>
+
+    <!-- Milky-Way nebula band -->
+    <radialGradient id="nebulaCore" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.00" stop-color="#5B8DBF" stop-opacity="0.35"/>
+      <stop offset="0.30" stop-color="#6B4F8F" stop-opacity="0.18"/>
+      <stop offset="0.65" stop-color="#3E2A52" stop-opacity="0.10"/>
+      <stop offset="1.00" stop-color="#0B0F14" stop-opacity="0.00"/>
+    </radialGradient>
+
+    <radialGradient id="nebulaWarm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.00" stop-color="#E8956B" stop-opacity="0.18"/>
+      <stop offset="0.55" stop-color="#9F5A38" stop-opacity="0.08"/>
+      <stop offset="1.00" stop-color="#0B0F14" stop-opacity="0.00"/>
+    </radialGradient>
+
+    <radialGradient id="nebulaCool" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.00" stop-color="#3E5C82" stop-opacity="0.22"/>
+      <stop offset="0.60" stop-color="#2A3A4F" stop-opacity="0.08"/>
+      <stop offset="1.00" stop-color="#0B0F14" stop-opacity="0.00"/>
+    </radialGradient>
+
+    <!-- Light sweep mask for wordmark -->
+    <linearGradient id="sweepEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0.00" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="0.70" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="1.00" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <mask id="sweep" maskUnits="userSpaceOnUse" x="0" y="0" width="1280" height="480">
+      <rect x="0" y="0" width="0" height="480" fill="#FFFFFF">
+        <animate attributeName="width" from="0" to="1280"
+                 begin="0.30s" dur="2.0s" fill="freeze"
+                 calcMode="spline" keySplines="0.32 0.04 0.20 1"/>
+      </rect>
+      <rect x="-200" y="0" width="200" height="480" fill="url(#sweepEdge)">
+        <animate attributeName="x" from="-200" to="1280"
+                 begin="0.30s" dur="2.0s" fill="freeze"
+                 calcMode="spline" keySplines="0.32 0.04 0.20 1"/>
+      </rect>
+    </mask>
+
+    <!-- Orb assets -->
+    <radialGradient id="orbAtmos" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.00" stop-color="#E8956B" stop-opacity="0.60"/>
+      <stop offset="0.45" stop-color="#E8956B" stop-opacity="0.20"/>
+      <stop offset="1.00" stop-color="#E8956B" stop-opacity="0.00"/>
+    </radialGradient>
+
+    <radialGradient id="orbBody" cx="0.38" cy="0.32" r="0.78">
+      <stop offset="0.00" stop-color="#FFE6CC"/>
+      <stop offset="0.18" stop-color="#FFC596"/>
+      <stop offset="0.50" stop-color="#E8956B"/>
+      <stop offset="0.82" stop-color="#9F5A38"/>
+      <stop offset="1.00" stop-color="#4D2812"/>
+    </radialGradient>
+
+    <radialGradient id="orbInnerLight" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.00" stop-color="#FFF6E6" stop-opacity="0.95"/>
+      <stop offset="0.45" stop-color="#FFD4B0" stop-opacity="0.40"/>
+      <stop offset="1.00" stop-color="#FFD4B0" stop-opacity="0.00"/>
+    </radialGradient>
+
+    <radialGradient id="orbRimCool" cx="0.78" cy="0.72" r="0.35">
+      <stop offset="0.00" stop-color="#5B8DBF" stop-opacity="0.55"/>
+      <stop offset="1.00" stop-color="#5B8DBF" stop-opacity="0.00"/>
+    </radialGradient>
+
+    <radialGradient id="orbSpec" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.00" stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <filter id="orbBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+
+    <filter id="iridescence" x="-50%" y="-50%" width="200%" height="200%">
+      <feColorMatrix type="hueRotate" values="0">
+        <animate attributeName="values" from="0" to="360"
+                 dur="18s" repeatCount="indefinite"/>
+      </feColorMatrix>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Background gradient -->
+  <rect width="1280" height="480" fill="url(#bg)"/>
+
+  <!-- ================================================================ -->
+  <!-- MILKY WAY                                                         -->
+  <!-- A galactic band centered on the canvas, rotating once per 180s.   -->
+  <!-- Three overlapping nebula gradients (cool, warm, deep) + a star    -->
+  <!-- field of 60+ points, a dozen of which twinkle on desynced timers. -->
+  <!-- The entire field is dim enough not to fight the wordmark, but is  -->
+  <!-- always alive.                                                     -->
+  <!-- ================================================================ -->
+
+  <g transform="translate(640 240)">
+    <animateTransform attributeName="transform" type="rotate"
+                      from="0" to="360" dur="180s" repeatCount="indefinite"
+                      additive="sum"/>
+
+    <!-- Nebula band: large stretched ellipses, layered -->
+    <ellipse cx="0"    cy="-30" rx="800" ry="180" fill="url(#nebulaCore)"/>
+    <ellipse cx="-200" cy="50"  rx="500" ry="140" fill="url(#nebulaCool)"/>
+    <ellipse cx="250"  cy="-40" rx="450" ry="120" fill="url(#nebulaWarm)"/>
+
+    <!-- Galactic dust streak -->
+    <ellipse cx="0" cy="0" rx="780" ry="40" fill="#0B0F14" opacity="0.55"/>
+
+    <!-- Star field — varied sizes, varied opacities, scattered across the band -->
+    <g fill="#FAF8F3" filter="url(#softGlow)">
+      <!-- Inner cluster (denser near galactic core) -->
+      <circle cx="-30"  cy="-12" r="1.0" opacity="0.85"/>
+      <circle cx="60"   cy="8"   r="0.7" opacity="0.65"/>
+      <circle cx="-90"  cy="20"  r="0.5" opacity="0.55"/>
+      <circle cx="110"  cy="-25" r="0.9" opacity="0.75"/>
+      <circle cx="-150" cy="-8"  r="0.6" opacity="0.60"/>
+      <circle cx="170"  cy="35"  r="0.5" opacity="0.45"/>
+      <circle cx="-220" cy="48"  r="0.7" opacity="0.55"/>
+      <circle cx="240"  cy="-50" r="0.8" opacity="0.70"/>
+      <circle cx="-280" cy="-32" r="0.5" opacity="0.40"/>
+      <circle cx="300"  cy="60"  r="0.6" opacity="0.50"/>
+
+      <!-- Mid-band stars -->
+      <circle cx="-380" cy="20"  r="0.7" opacity="0.55"/>
+      <circle cx="400"  cy="-15" r="0.5" opacity="0.45"/>
+      <circle cx="-440" cy="-65" r="0.6" opacity="0.50"/>
+      <circle cx="460"  cy="40"  r="0.4" opacity="0.40"/>
+      <circle cx="-500" cy="80"  r="0.8" opacity="0.60"/>
+      <circle cx="520"  cy="-80" r="0.5" opacity="0.45"/>
+      <circle cx="-560" cy="-30" r="0.4" opacity="0.35"/>
+      <circle cx="580"  cy="20"  r="0.7" opacity="0.55"/>
+
+      <!-- Outer scattered -->
+      <circle cx="-620" cy="100" r="0.4" opacity="0.35"/>
+      <circle cx="640"  cy="-110" r="0.6" opacity="0.50"/>
+      <circle cx="-680" cy="-50" r="0.5" opacity="0.40"/>
+      <circle cx="690"  cy="70"  r="0.4" opacity="0.30"/>
+      <circle cx="-720" cy="40"  r="0.5" opacity="0.40"/>
+
+      <!-- Off-band (high latitude) stars, sparser -->
+      <circle cx="-100" cy="-130" r="0.4" opacity="0.35"/>
+      <circle cx="50"   cy="140" r="0.5" opacity="0.45"/>
+      <circle cx="-300" cy="120" r="0.5" opacity="0.40"/>
+      <circle cx="200"  cy="-140" r="0.4" opacity="0.35"/>
+      <circle cx="-450" cy="-150" r="0.6" opacity="0.50"/>
+      <circle cx="350"  cy="150" r="0.4" opacity="0.35"/>
+      <circle cx="-200" cy="180" r="0.5" opacity="0.40"/>
+      <circle cx="380"  cy="-170" r="0.5" opacity="0.40"/>
+      <circle cx="-580" cy="170" r="0.4" opacity="0.30"/>
+      <circle cx="520"  cy="-160" r="0.5" opacity="0.40"/>
+
+      <!-- Far-field tiny pinpoints -->
+      <circle cx="-330" cy="-100" r="0.3" opacity="0.30"/>
+      <circle cx="80"   cy="-90"  r="0.3" opacity="0.30"/>
+      <circle cx="-160" cy="90"   r="0.3" opacity="0.30"/>
+      <circle cx="280"  cy="100"  r="0.3" opacity="0.30"/>
+      <circle cx="-410" cy="-90"  r="0.3" opacity="0.30"/>
+      <circle cx="450"  cy="-30"  r="0.3" opacity="0.30"/>
+      <circle cx="-520" cy="0"    r="0.3" opacity="0.30"/>
+      <circle cx="600"  cy="-50"  r="0.3" opacity="0.30"/>
+    </g>
+
+    <!-- Twinkle stars — brighter, with desynced opacity pulses -->
+    <g fill="#FAF8F3" filter="url(#softGlow)">
+      <circle cx="-260" cy="10" r="1.3">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="3.7s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="180" cy="-30" r="1.2">
+        <animate attributeName="opacity" values="0.9;0.3;0.9" dur="4.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-470" cy="-30" r="1.1">
+        <animate attributeName="opacity" values="0.3;0.95;0.3" dur="5.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="420" cy="60" r="1.2">
+        <animate attributeName="opacity" values="0.85;0.35;0.85" dur="6.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-80" cy="50" r="1.0">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="4.0s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="320" cy="-100" r="1.0" fill="#E8C2A0">
+        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5.7s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-340" cy="80" r="1.1" fill="#B0C4DE">
+        <animate attributeName="opacity" values="0.95;0.4;0.95" dur="4.3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-560" cy="-90" r="0.9" fill="#FFD4B0">
+        <animate attributeName="opacity" values="0.4;0.85;0.4" dur="5.8s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <!-- Composition frame -->
+  <line x1="80" y1="60"  x2="1200" y2="60"  stroke="#1A2330" stroke-width="1"/>
+  <line x1="80" y1="420" x2="1200" y2="420" stroke="#1A2330" stroke-width="1"/>
+
+  <!-- Top meta -->
+  <text x="80" y="48"
+        font-family="ui-monospace, 'SF Mono', Menlo, monospace"
+        font-size="10" fill="#5B6B7E" letter-spacing="0.22em">
+    TIME DISCIPLINE LTD.
+  </text>
+  <text x="1200" y="48"
+        font-family="ui-monospace, 'SF Mono', Menlo, monospace"
+        font-size="10" fill="#5B6B7E" letter-spacing="0.22em" text-anchor="end">
+    PHASE A · ACTIVE
+  </text>
+  <circle cx="1212" cy="44" r="2.5" fill="#E8956B">
+    <animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ================================================================ -->
+  <!-- WORDMARK                                                          -->
+  <!-- Dotless ı (U+0131), so no natural dot. Four separate text         -->
+  <!-- elements with explicit x positions chosen so the ı stem sits at   -->
+  <!-- x≈555 in absolute coords. The orb is centered exactly above it.   -->
+  <!-- ================================================================ -->
+
+  <!-- Wordmark — three text elements with locked anchor points:                 -->
+  <!--   "T"  text-anchor="end"    at x=540  → T's right edge LOCKED at x=540    -->
+  <!--   "ı"  text-anchor="middle" at x=560  → ı's CENTER     LOCKED at x=560    -->
+  <!--   "ME" text-anchor="start"  at x=580  → M's left edge  LOCKED at x=580    -->
+  <!-- Result: the ı is ALWAYS centered at x=560 regardless of browser font.     -->
+  <!-- The orb at cx=560 is therefore ALWAYS directly above the ı. Font-proof.   -->
+
+  <!-- Layer 1: dim baseline -->
+  <g font-family="ui-sans-serif, 'Inter', 'Helvetica Neue', system-ui"
+     font-size="220" font-weight="200" fill="#FAF8F3" opacity="0.16">
+    <text x="540" y="295" text-anchor="end">T</text>
+    <text x="560" y="295" text-anchor="middle">ı</text>
+    <text x="580" y="295" text-anchor="start">ME</text>
+  </g>
+
+  <!-- Layer 2: bright wordmark, sweep-revealed -->
+  <g mask="url(#sweep)">
+    <g font-family="ui-sans-serif, 'Inter', 'Helvetica Neue', system-ui"
+       font-size="220" font-weight="200" fill="#FAF8F3">
+      <text x="540" y="295" text-anchor="end">T</text>
+      <text x="560" y="295" text-anchor="middle">ı</text>
+      <text x="580" y="295" text-anchor="start">ME</text>
+    </g>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- THE ORB — sits at the cap-height level above the ı.               -->
+  <!-- Sparkles are now perpendicular (N, E, S, W) so all five elements  -->
+  <!-- (4 cardinal + 1 heart) are evenly visible.                        -->
+  <!-- ================================================================ -->
+
+  <g opacity="0.16">
+    <animate attributeName="opacity" from="0.16" to="1" begin="1.6s" dur="1.0s" fill="freeze"
+             calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+
+    <!-- ORB at x=560: directly above the ı's locked center position.            -->
+    <!-- The ı is rendered with text-anchor="middle" at x=560, so its visual      -->
+    <!-- center is always at x=560 regardless of which font the browser picks.   -->
+    <g filter="url(#iridescence)" transform="translate(560 130)">
+
+      <!-- Atmospheric outer glow -->
+      <circle r="48" fill="url(#orbAtmos)" filter="url(#orbBlur)">
+        <animate attributeName="r" values="42;52;42" dur="5.4s" repeatCount="indefinite"
+                 calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+        <animate attributeName="opacity" values="0.55;0.95;0.55" dur="5.4s" repeatCount="indefinite"
+                 calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+      </circle>
+
+      <!-- Mid pulse ring -->
+      <circle r="22" fill="none" stroke="#FFC596" stroke-width="0.7">
+        <animate attributeName="r" values="16;26;16" dur="7.2s" repeatCount="indefinite"
+                 calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+        <animate attributeName="opacity" values="0;0.45;0" dur="7.2s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- Crystal body -->
+      <circle r="16" fill="url(#orbBody)"/>
+
+      <!-- Cool-side rim light -->
+      <circle r="16" fill="url(#orbRimCool)">
+        <animate attributeName="opacity" values="0.6;0.85;0.6" dur="9.3s" repeatCount="indefinite"
+                 calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+      </circle>
+
+      <!-- Internal light source: orbits inside (20s rotation) -->
+      <g>
+        <animateTransform attributeName="transform" type="rotate"
+                          from="0" to="360" dur="20s" repeatCount="indefinite"/>
+        <ellipse cx="5" cy="-4" rx="8" ry="7" fill="url(#orbInnerLight)" opacity="0.85"/>
+      </g>
+
+      <!-- Counter-rotating refraction (28s reverse) -->
+      <g opacity="0.40">
+        <animateTransform attributeName="transform" type="rotate"
+                          from="360" to="0" dur="28s" repeatCount="indefinite"/>
+        <ellipse cx="-5" cy="3" rx="5" ry="3" fill="#5B8DBF" opacity="0.6"/>
+      </g>
+
+      <!-- Facet lines (perpendicular cross + diagonals, desynced opacity) -->
+      <g stroke="#FFE6CC" stroke-width="0.6" stroke-linecap="round">
+        <line x1="-12" y1="0" x2="12" y2="0">
+          <animate attributeName="opacity" values="0.20;0.65;0.20" dur="4.1s" repeatCount="indefinite"/>
+        </line>
+        <line x1="0" y1="-12" x2="0" y2="12">
+          <animate attributeName="opacity" values="0.55;0.15;0.55" dur="5.3s" repeatCount="indefinite"/>
+        </line>
+        <line x1="-8.5" y1="-8.5" x2="8.5" y2="8.5">
+          <animate attributeName="opacity" values="0.20;0.55;0.20" dur="6.7s" repeatCount="indefinite"/>
+        </line>
+        <line x1="-8.5" y1="8.5" x2="8.5" y2="-8.5">
+          <animate attributeName="opacity" values="0.45;0.10;0.45" dur="5.9s" repeatCount="indefinite"/>
+        </line>
+      </g>
+
+      <!-- Specular pin highlight -->
+      <circle cx="-5" cy="-6" r="3.6" fill="url(#orbSpec)" opacity="0.85">
+        <animate attributeName="opacity" values="0.65;0.95;0.65" dur="4.7s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- 4 cardinal sparkles (90° perpendicular cross) — same radius, desynced timers -->
+      <g fill="#FFF6E6" filter="url(#softGlow)">
+        <!-- North -->
+        <circle cx="0" cy="-32" r="1.5">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" begin="0.0s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="1.2;1.8;1.2" dur="3.1s" begin="0.0s" repeatCount="indefinite"/>
+        </circle>
+        <!-- East -->
+        <circle cx="32" cy="0" r="1.5">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="3.7s" begin="0.9s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="1.2;1.8;1.2" dur="3.7s" begin="0.9s" repeatCount="indefinite"/>
+        </circle>
+        <!-- South -->
+        <circle cx="0" cy="32" r="1.5">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="4.3s" begin="1.8s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="1.2;1.8;1.2" dur="4.3s" begin="1.8s" repeatCount="indefinite"/>
+        </circle>
+        <!-- West -->
+        <circle cx="-32" cy="0" r="1.5">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="3.5s" begin="0.6s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="1.2;1.8;1.2" dur="3.5s" begin="0.6s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+
+      <!-- Heart pin (the 5th point — center) -->
+      <circle r="1.2" fill="#FFFFFF" opacity="0.9">
+        <animate attributeName="opacity" values="0.65;1;0.65" dur="3.8s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="1.0;1.5;1.0" dur="3.8s" repeatCount="indefinite"/>
+      </circle>
+
+    </g>
+  </g>
+
+  <!-- Taglines -->
+  <g font-family="ui-sans-serif, 'Inter', 'Helvetica Neue', system-ui" text-anchor="middle" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="2.40s" dur="1.2s" fill="freeze"/>
+    <text x="640" y="358" font-size="26" font-weight="300" fill="#A8B5C7" letter-spacing="0.005em">
+      Your time, returned to you.
+    </text>
+    <text x="640" y="392" font-size="20" font-weight="300" fill="#7E8FA8" letter-spacing="0.06em">
+      あなたの時間を、あなたへ。
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <text x="80" y="444"
+        font-family="ui-monospace, 'SF Mono', Menlo, monospace"
+        font-size="10" fill="#5B6B7E" letter-spacing="0.22em">
+    KOTLIN · COMPOSE · RAILS · SWIFTUI
+  </text>
+  <text x="1200" y="444"
+        font-family="ui-monospace, 'SF Mono', Menlo, monospace"
+        font-size="10" fill="#5B6B7E" letter-spacing="0.22em" text-anchor="end">
+    2026
+  </text>
+
+</svg>
