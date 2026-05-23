@@ -244,15 +244,15 @@ flowchart LR
         S3[(S3<br/>Object Storage)]
     end
 
-    A   -->|HTTPS / JWT| API
-    I   -->|HTTPS / JWT| API
-    W   -->|HTTP /Turbo|  API
+    A -->|HTTPS JWT| API
+    I -->|HTTPS JWT| API
+    W -->|HTTP Turbo| API
     API --> PG
     API --> R
     API --> SK
-    SK  --> AI
-    SK  --> PG
-    AI  --> R
+    SK --> AI
+    SK --> PG
+    AI --> R
     API --> S3
 ```
 
