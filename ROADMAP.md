@@ -1,4 +1,4 @@
-# TiME — Operational Roadmap
+# TiME: Operational Roadmap
 
 This file is the human-readable mirror of the YouTrack ticket backlog. Every item below is also a ticket in our self-hosted YouTrack project (prefix `TIME-`). When the two disagree, **YouTrack wins** and this file is updated within the same session.
 
@@ -22,7 +22,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 
 ---
 
-## Phase A — Polish and Ship Android
+## Phase A: Polish and Ship Android
 
 > 2026-05-16 to 2026-08-14 · 13 weeks · 90 days
 > Budget: 29.5h baseline to 37.5h surge per week · approximately 350-400h total
@@ -44,7 +44,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 
 ### Phase A backlog (stories and tasks)
 
-#### Week 1 — Foundation reset and audit
+#### Week 1: Foundation reset and audit
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -56,7 +56,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-006` | Spike | Decide YouTrack VCS integration plugin or webhook approach | 1h | High | See `YOUTRACK_SETUP.md` |
 | `TIME-011` | Bug | Remove `@RequiresApi(VANILLA_ICE_CREAM)` annotations in `MainActivity.kt`, `NavGraph.kt`, `SettingsScreen.kt` | 2h | Critical | Crashes on Android 14 or earlier |
 
-#### Week 2 — Architecture preparation for Rails (Phase B foundation)
+#### Week 2: Architecture preparation for Rails (Phase B foundation)
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -67,7 +67,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-205` | Story | Migrate to Hilt DI: add deps, Application annotation, ViewModels, Repositories | 6h | Critical | Sub-step deliverables in child tickets |
 | `TIME-206` | Task | Write 5 unit tests against a fake `TimeRepository` to establish testing pattern | 2h | High | |
 
-#### Week 3 — QuietCraft design system pass
+#### Week 3: QuietCraft design system pass
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -77,7 +77,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-604` | Task | Replace ad-hoc spacing or typography across screens with codified tokens | 4h | High | Sweep pass; verify with grep |
 | `TIME-605` | Task | Side-by-side visual comparison vs Sunsama, Sessions, Structured (3 screenshots each) | 2h | Medium | Output: 3 axes of weakness, become child tickets |
 
-#### Week 4 — Timeline screen polish
+#### Week 4: Timeline screen polish
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -88,7 +88,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-614` | Task | Microcopy pass across Timeline; align with BIBLE 5.3 | 2h | High | EN + JP |
 | `TIME-615` | Task | Capture 5 marketable screenshots from Timeline screen alone | 1h | Medium | Reuse for Play Store assets |
 
-#### Week 5 — HyperFocus screen polish
+#### Week 5: HyperFocus screen polish
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -99,7 +99,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-624` | Task | HyperFocus carousel empty state | 1h | Medium | |
 | `TIME-625` | Spike | 2-hour 4-session stress test; verify state integrity after force kill | 2h | Critical | Output: bug list if any |
 
-#### Week 6 — Calendar and Analytics polish
+#### Week 6: Calendar and Analytics polish
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -109,7 +109,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-633` | Task | FocusStreakBadge as trophy users screenshot | 1.5h | Medium | |
 | `TIME-634` | Task | Analytics empty state for users with under 7 days of data | 1.5h | Medium | |
 
-#### Week 7 — Settings, Categories, AddTiME polish
+#### Week 7: Settings, Categories, AddTiME polish
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -119,7 +119,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-643` | Task | Time picker UX review on small screens | 1.5h | Medium | |
 | `TIME-644` | Spike | Power-user keyboard shortcuts idea spike (defer implementation) | 1h | Low | Phase B candidate |
 
-#### Week 8 — Onboarding flow (TIME-300 epic)
+#### Week 8: Onboarding flow (TIME-300 epic)
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -143,10 +143,10 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-106` | Story | Account deletion (GDPR Article 17) with full Firestore cascade | 3h | Critical | |
 | `TIME-107` | Task | `AccountViewModel.kt` + `AuthRepository.kt` (interface ready for Rails swap) | 3h | Critical | Repository pattern carried through |
 | `TIME-108` | Task | Settings screen integration: sign in / out / delete account section | 2h | Critical | |
-| `TIME-109` | Bug | Fix global `time_entries` collection — scope to authenticated user | 4h | Critical | Highest single-ticket criticality |
+| `TIME-109` | Bug | Fix global `time_entries` collection, scope to authenticated user | 4h | Critical | Highest single-ticket criticality |
 | `TIME-110` | Task | Add `firestore.rules` to repo; deny-by-default with auth check | 1.5h | Critical | Per BIBLE 6.3 |
 
-#### Week 9 — Bug hunt and crash hardening
+#### Week 9: Bug hunt and crash hardening
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -156,7 +156,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-653` | Bug | Verify ProGuard / R8 release build does not break Firebase models | 2h | High | Common minification gotcha |
 | `TIME-654` | Task | Pre-release build signed and installed on test device | 1h | High | |
 
-#### Week 10 — Marketing site and Play Store assets (TIME-800 epic)
+#### Week 10: Marketing site and Play Store assets (TIME-800 epic)
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -168,7 +168,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-806` | Task | Feature graphic and final app icon | 2h | High | |
 | `TIME-807` | Task | 30-second screen recording trailer | 2h | Medium | |
 
-#### Week 11 — Closed beta (TIME-900 epic)
+#### Week 11: Closed beta (TIME-900 epic)
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -178,7 +178,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-904` | Task | Daily Sentry + Play Console crash triage (1h × 7 days) | 7h | Critical | Spans the week |
 | `TIME-905` | Story | Mid-week patch release responding to first feedback | 4h | High | |
 
-#### Week 12 — Polish from feedback and perf
+#### Week 12: Polish from feedback and perf
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -187,7 +187,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 | `TIME-912` | Task | Timeline first-paint after cold start (target under 500ms) | 2h | High | |
 | `TIME-913` | Task | Battery profile on multi-hour HyperFocus session | 2h | Medium | |
 
-#### Week 13 — Soft launch and retrospective
+#### Week 13: Soft launch and retrospective
 
 | ID | Type | Title | Estimate | Priority | Notes |
 |---|---|---|---|---|---|
@@ -217,7 +217,7 @@ The `youtrack-import.csv` file in the repo root is a YouTrack-importable copy of
 
 ---
 
-## Phase B — Rails Backend + AI + Web V1 (placeholder, expanded at Phase B kickoff)
+## Phase B: Rails Backend + AI + Web V1 (placeholder, expanded at Phase B kickoff)
 
 > 2026-08-15 to 2027-02-12 · 26 weeks
 > Outcome: Firebase fully retired; first paying customers; Web V1 live; AI feature set shipped
@@ -226,14 +226,14 @@ Phase B tickets will be created at the Phase A retrospective (`TIME-922`). Sub-p
 
 ---
 
-## Phase C — SwiftUI iOS Native (placeholder)
+## Phase C: SwiftUI iOS Native (placeholder)
 
 > 2027-02-13 to 2027-08-14 · 26 weeks
 > Outcome: App Store launch with feature parity to Android
 
 ---
 
-## Phase D — Teams + Enterprise + Hires (placeholder)
+## Phase D: Teams + Enterprise + Hires (placeholder)
 
 > 2027-08-15 to 2028-05-16 · 36 weeks
 > Outcome: First contractors hired; Teams plan live; Series A optionality

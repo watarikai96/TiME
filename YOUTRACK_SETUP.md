@@ -1,4 +1,4 @@
-# YouTrack Integration — Setup and Conventions
+# YouTrack Integration: Setup and Conventions
 
 This document is the canonical guide for connecting our self-hosted YouTrack instance to the GitHub repository, importing the Phase A backlog, and enforcing the commit / branch / PR conventions that make the two systems behave as one.
 
@@ -33,7 +33,7 @@ The integration is **one-way leaning**: GitHub events update YouTrack tickets (l
 
 ---
 
-## Step 1 — Verify YouTrack is reachable
+## Step 1: Verify YouTrack is reachable
 
 YouTrack is already running in Docker on your machine. Verify before any integration work:
 
@@ -55,14 +55,14 @@ The setup below assumes **Option 1 (self-hosted runner)**.
 
 ---
 
-## Step 2 — Create the YouTrack project
+## Step 2: Create the YouTrack project
 
 In the YouTrack web UI:
 
 1. **Project** > Create new project
 2. Name: `TiME`
 3. Project ID / key: `TIME` (tickets will be `TIME-1`, `TIME-2`, …)
-4. Description: paste a single sentence: "TiME — calm time management product. Source of truth at github.com/watarikai96/TiME. Strategy in BIBLE.md (private)."
+4. Description: paste a single sentence: "TiME, calm time management product. Source of truth at github.com/watarikai96/TiME. Strategy in BIBLE.md (private)."
 
 Configure these fields under **Administration > Projects > TiME > Fields**:
 
@@ -72,7 +72,7 @@ Configure these fields under **Administration > Projects > TiME > Fields**:
 | Priority | Enum (single) | Critical, High, Medium, Low |
 | Estimation | Period | hours (use the built-in Period field) |
 | Phase | Enum (single) | Phase A, Phase B, Phase C, Phase D |
-| Week | Enum (single) | W1 through W13 (Phase A only — extend later) |
+| Week | Enum (single) | W1 through W13 (Phase A only, extend later) |
 | Tags | Tags (multi) | freeform; see CSV column for starter set |
 
 Configure these states under **Workflow > States**:
@@ -85,7 +85,7 @@ Open ─▸ In Progress ─▸ In Review ─▸ Done
 
 ---
 
-## Step 3 — Import the Phase A backlog
+## Step 3: Import the Phase A backlog
 
 The Phase A backlog is shipped as `youtrack-import.csv` in the repo root.
 
@@ -105,11 +105,11 @@ The Phase A backlog is shipped as `youtrack-import.csv` in the repo root.
 4. Preview a few rows; confirm field mapping; click **Import**.
 5. Verify ticket count matches: expect **105 tickets** (9 epics + 96 stories / tasks / bugs / spikes).
 
-Manually link epics to their child tickets via the YouTrack UI after import — child relationship is not in the CSV because it depends on the auto-generated IDs YouTrack assigns. A second pass after import is faster than scripting it.
+Manually link epics to their child tickets via the YouTrack UI after import, child relationship is not in the CSV because it depends on the auto-generated IDs YouTrack assigns. A second pass after import is faster than scripting it.
 
 ---
 
-## Step 4 — Generate an API token
+## Step 4: Generate an API token
 
 YouTrack needs a token so GitHub events can be posted by the runner.
 
@@ -123,7 +123,7 @@ Never commit the token. Never paste it into chat.
 
 ---
 
-## Step 5 — Configure VCS Integration (read-only side)
+## Step 5: Configure VCS Integration (read-only side)
 
 YouTrack's native **VCS Integrations** feature can fetch commits from a Git repo and link them to tickets without any GitHub-side configuration. For our self-hosted setup with GitHub as the source, the practical approach is:
 
@@ -139,7 +139,7 @@ For real-time updates (state transitions on PR events), continue to Step 6.
 
 ---
 
-## Step 6 — Set up the GitHub Actions self-hosted runner
+## Step 6: Set up the GitHub Actions self-hosted runner
 
 On the same machine that runs YouTrack:
 
@@ -223,11 +223,11 @@ This workflow:
 - Updates the corresponding YouTrack ticket's state via the YouTrack REST API
 - Runs on the self-hosted runner so it can reach `localhost:8080`
 
-Test it: open a PR titled `TIME-001: walkthrough video recording` — within a minute, ticket TIME-001 should transition to **In Review**.
+Test it: open a PR titled `TIME-001: walkthrough video recording`, within a minute, ticket TIME-001 should transition to **In Review**.
 
 ---
 
-## Step 7 — Commit, branch, and PR conventions
+## Step 7: Commit, branch, and PR conventions
 
 These conventions are not optional. They are what makes the integration tight.
 
@@ -263,7 +263,7 @@ PR title:
 TIME-NNN: human description of change
 ```
 
-PR body (template — install via `.github/PULL_REQUEST_TEMPLATE.md`):
+PR body (template, install via `.github/PULL_REQUEST_TEMPLATE.md`):
 ```markdown
 ## What
 Brief description of the change.
@@ -290,7 +290,7 @@ When the PR merges to `main`, the workflow in Step 6 transitions the YouTrack ti
 
 ---
 
-## Step 8 — Daily progress ritual
+## Step 8: Daily progress ritual
 
 The two-hour-day rule from the README needs an actual ritual to enforce it. Here is the minimum:
 
@@ -311,7 +311,7 @@ The two-hour-day rule from the README needs an actual ritual to enforce it. Here
 **Every Sunday evening:**
 
 1. Generate the weekly summary in YouTrack: tickets closed, hours logged, hours remaining for the phase.
-2. Post the public weekly thread on X (see README — Build in Public).
+2. Post the public weekly thread on X (see README, Build in Public).
 3. Update `LOG.md` with five lines about the week.
 
 ---
@@ -324,7 +324,7 @@ The two-hour-day rule from the README needs an actual ritual to enforce it. Here
 | `401 Unauthorized` from YouTrack API | Token expired or wrong scope | Regenerate token (Step 4); update GitHub secret |
 | Commits not linking to tickets | `TIME-NNN` not in commit message subject | Amend the commit and force-push the branch |
 | YouTrack VCS poll runs but finds nothing | Polling URL wrong or GitHub token lacks `repo` scope | Reconfigure VCS Integration (Step 5) |
-| Workflow runs but skips state update | `if: steps.refs.outputs.refs != ''` is empty | The PR title and commit message both lack a `TIME-NNN` reference — fix the convention |
+| Workflow runs but skips state update | `if: steps.refs.outputs.refs != ''` is empty | The PR title and commit message both lack a `TIME-NNN` reference, fix the convention |
 
 ---
 
@@ -332,4 +332,4 @@ The two-hour-day rule from the README needs an actual ritual to enforce it. Here
 
 Update it. It is a living document. Commit changes with subject `YOUTRACK_SETUP: <what changed>`.
 
-If the integration approach itself needs to change (different webhook strategy, different runner host, different YouTrack version), update the **Topology** diagram first, then the steps. Keep the document linear — a person setting up the integration for the first time should be able to follow it top-to-bottom.
+If the integration approach itself needs to change (different webhook strategy, different runner host, different YouTrack version), update the **Topology** diagram first, then the steps. Keep the document linear, a person setting up the integration for the first time should be able to follow it top-to-bottom.

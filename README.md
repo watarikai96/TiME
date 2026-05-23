@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/banner.svg">
-  <img src="assets/banner.svg" alt="TiME — Your time, returned to you." width="100%">
+  <img src="assets/banner.svg" alt="TiME: Your time, returned to you." width="100%">
 </picture>
 
 <br>
@@ -82,9 +82,9 @@ If TiME succeeds financially but loses this stance, it has failed. If it succeed
 
 ## What is TiME
 
-TiME is a calm, AI-augmented time-management system designed for people who want to own their attention rather than be owned by it. Built natively across Android, iOS, and the web, it blends the daily planning ritual of Sunsama, the focus-session execution of Sessions and Structured, and the tactile aesthetic gravity of a Moleskine notebook into a single product that occupies a territory no current competitor holds: the intersection of **calm** and **general**.
+TiME is a calm, AI-augmented time-management system designed for people who want to own their attention rather than be owned by it. Built natively across Android, iOS, and the web, it blends the daily planning ritual of Sunsama, the focus-session execution of Sessions and Structured, and the tactile aesthetic gravity of a Moleskine notebook. The result occupies a territory no current competitor holds: the intersection of **calm** and **general**.
 
-The product is built and operated by a single founder under the Source-of-Truth playbook known internally as the BIBLE. Every decision — visual, technical, commercial — is traceable to a Decision Log line. Drift is not permitted.
+The product is built and operated by a single founder under a Source-of-Truth playbook known internally as the BIBLE. Every decision (visual, technical, commercial) traces back to a line in the Decision Log. Drift is not permitted.
 
 <br>
 
@@ -121,7 +121,7 @@ Built by one founder using AI as a force multiplier. The story of TiME is itself
 <tr>
 <td width="65%">
 
-> **PHASE A — POLISH AND SHIP ANDROID**
+> **PHASE A: POLISH AND SHIP ANDROID**
 > Months 0 to 3 · 2026-05-16 to 2026-08-14 · 13 weeks
 >
 > Take the existing Android app from "works in IDE" to "50 to 100 users on Play Store closed alpha." Firebase carries this phase. Repository interfaces are extracted to prepare for the Phase B Rails migration. AI features wait until Phase B.
@@ -370,7 +370,7 @@ Three artifacts, three responsibilities. Nothing duplicates.
 │                                                                      │
 │   BIBLE.md          ▸  the truth for STRATEGY                        │
 │   (private)            philosophy, persona doctrine, roadmap,        │
-│                        agent command book — not in this README       │
+│                        agent command book. Not in this README        │
 │                                                                      │
 └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -387,7 +387,7 @@ Integration details, branch and commit conventions, and webhook setup all live i
 
 This project is built fully in the open. The product source is proprietary (see [License](#license)) but the journey is public.
 
-- **X (Twitter):** [@watarikai96](https://twitter.com/watarikai96) — daily progress, lessons, weekly metrics threads
+- **X (Twitter):** [@watarikai96](https://twitter.com/watarikai96). Daily progress, lessons, and weekly metrics threads.
 - **Weekly retrospectives:** every Sunday evening JST, posted as a thread
 - **Monthly numbers:** transparent revenue, retention, and active-user counts beginning at first paid user
 - **Annual transparency report:** a long-form blog post published at the end of each year
@@ -431,8 +431,7 @@ See [`LICENSE.md`](LICENSE.md) for the full text.
 
 ## Credits
 
-Engineering, design, and product by **Rahul Watari** (`@watarikai96`).
-Strategy partner and pair programmer: **Claude** (Anthropic).
+Built by **ラフル（RAHUL）**.
 
 <br>
 
