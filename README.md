@@ -431,7 +431,7 @@ See [`LICENSE.md`](LICENSE.md) for the full text.
 
 ## Credits
 
-Built by **Rahul** (`@watarikai96`).
+Built by **ラフル**（RAHUL）.
 
 <br>
 
